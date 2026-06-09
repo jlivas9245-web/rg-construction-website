@@ -27,16 +27,15 @@ export const site = {
     "RG Construction is a licensed and insured general contractor serving Longview, Tyler, Kilgore, Marshall and surrounding East Texas communities with residential and commercial construction, remodeling and property maintenance.",
   // Update this to your production domain before deploying.
   url: "https://www.rgconstruction-tx.com",
-  // ---- Placeholders — replace with real business details ----
-  phoneDisplay: "(903) 555-0142",
-  phoneHref: "+19035550142",
-  email: "info@rgconstruction-tx.com",
+  phoneDisplay: "903-917-4229",
+  phoneHref: "+19039174229",
+  email: "rgconstructionserv@gmail.com",
+  // Service-area business — no public storefront address.
   address: {
-    street: "123 Industrial Blvd, Suite B",
     city: "Longview",
     state: "TX",
-    zip: "75601",
   },
+  serviceAreaLabel: "Longview, Tyler, Kilgore, Marshall & surrounding East Texas",
   hours: [
     { day: "Monday – Friday", time: "7:00 AM – 6:00 PM" },
     { day: "Saturday", time: "8:00 AM – 2:00 PM" },

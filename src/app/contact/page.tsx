@@ -30,8 +30,8 @@ const contactCards = [
   },
   {
     icon: MapPin,
-    title: "Visit / Mail",
-    lines: [site.address.street, `${site.address.city}, ${site.address.state} ${site.address.zip}`],
+    title: "Service Area",
+    lines: [`Based in ${site.address.city}, ${site.address.state}`, site.serviceAreaLabel],
   },
 ];
 

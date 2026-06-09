@@ -99,9 +99,9 @@ export function Footer() {
             <li className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
               <span>
-                {site.address.street}
+                Based in {site.address.city}, {site.address.state}
                 <br />
-                {site.address.city}, {site.address.state} {site.address.zip}
+                Serving all of East Texas
               </span>
             </li>
           </ul>

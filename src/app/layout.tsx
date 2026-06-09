@@ -60,10 +60,8 @@ export default function RootLayout({
     email: site.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: site.address.street,
       addressLocality: site.address.city,
       addressRegion: site.address.state,
-      postalCode: site.address.zip,
       addressCountry: "US",
     },
     areaServed: ["Longview TX", "Tyler TX", "Kilgore TX", "Marshall TX", "East Texas"],

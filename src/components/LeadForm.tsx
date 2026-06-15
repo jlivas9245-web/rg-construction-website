@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { AlertCircle, CheckCircle2, Loader2, Send } from "lucide-react";
 import { services } from "@/lib/site";
 
 type Props = {
@@ -16,19 +16,52 @@ export function LeadForm({
   title,
   description,
 }: Props) {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">(
-    "idle",
-  );
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
     setStatus("submitting");
+    setErrorMsg("");
 
-    // No backend is wired up yet. This simulates a submission so the UI is
-    // fully functional. Connect to an API route, email service or CRM here.
-    await new Promise((resolve) => setTimeout(resolve, 900));
-    setStatus("success");
-    (e.target as HTMLFormElement).reset();
+    const fd = new FormData(form);
+    const payload = {
+      variant,
+      name: String(fd.get("name") || ""),
+      phone: String(fd.get("phone") || ""),
+      email: String(fd.get("email") || ""),
+      city: String(fd.get("city") || ""),
+      service: String(fd.get("service") || ""),
+      budget: String(fd.get("budget") || ""),
+      message: String(fd.get("message") || ""),
+      company: String(fd.get("company") || ""), // honeypot
+    };
+
+    try {
+      const res = await fetch("/api/estimate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Your request could not be sent.");
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(
+        err instanceof Error
+          ? err.message
+          : "Your request could not be sent. Please call us instead.",
+      );
+    }
   }
 
   if (status === "success") {
@@ -67,6 +100,12 @@ export function LeadForm({
       )}
 
       <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+        {/* Honeypot — hidden from users, catches bots. */}
+        <div className="hidden" aria-hidden="true">
+          <label htmlFor="company">Company (leave blank)</label>
+          <input id="company" name="company" tabIndex={-1} autoComplete="off" />
+        </div>
+
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="name" className="label-field">
@@ -160,6 +199,13 @@ export function LeadForm({
             placeholder="Tell us about your project, timeline and goals…"
           />
         </div>
+
+        {status === "error" && (
+          <div className="flex items-start gap-2 rounded-md border border-red-300 bg-red-50 p-3 text-sm text-red-700 dark:border-red-900/60 dark:bg-red-950/40 dark:text-red-300">
+            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+            <span>{errorMsg}</span>
+          </div>
+        )}
 
         <button
           type="submit"

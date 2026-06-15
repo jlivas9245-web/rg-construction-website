@@ -58,9 +58,37 @@ the entire site (header, footer, contact page, schema, etc.).
 
 Before deploying, set your production domain in `src/lib/site.ts` (`site.url`).
 
-The lead/quote form (`src/components/LeadForm.tsx`) currently simulates
-submission. Connect it to an email service (e.g. Resend), an API route, or a
-CRM where indicated in the file.
+## Estimate & Contact Forms (Resend email)
+
+Both forms (`src/components/LeadForm.tsx`) POST to the API route
+`src/app/api/estimate/route.ts`, which emails each submission to your inbox
+via [Resend](https://resend.com). Submissions are delivered to
+**rgconstructionserv@gmail.com** with the customer's address set as
+`reply-to`, so you can reply to leads straight from your inbox. A hidden
+honeypot field blocks basic spam bots.
+
+**Setup (one time):**
+
+1. Create a free account at [resend.com](https://resend.com).
+2. **Verify a sending domain** at https://resend.com/domains (add the DNS
+   records Resend gives you). This lets you send from an address like
+   `estimates@yourdomain.com`. *(For a quick test you can skip this and send
+   from `onboarding@resend.dev`.)*
+3. Create an API key at https://resend.com/api-keys.
+4. Set these environment variables (locally in `.env.local`, and in your
+   Vercel project settings for production):
+
+   ```bash
+   RESEND_API_KEY=re_your_key_here
+   ESTIMATE_TO_EMAIL=rgconstructionserv@gmail.com
+   RESEND_FROM_EMAIL=RG Construction <estimates@yourdomain.com>
+   ```
+
+   `ESTIMATE_TO_EMAIL` defaults to `rgconstructionserv@gmail.com` if unset.
+   `RESEND_FROM_EMAIL` **must** be an address on a domain you've verified in
+   Resend (or `onboarding@resend.dev` for testing).
+
+See `.env.example` for a template.
 
 ## Run Locally
 

@@ -30,7 +30,7 @@ export default function OpenGraphImage() {
             fontSize: 28,
             letterSpacing: 6,
             textTransform: "uppercase",
-            color: "#fbab24",
+            color: "#7ea8f7",
             fontWeight: 700,
           }}
         >
@@ -39,13 +39,14 @@ export default function OpenGraphImage() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              width: 80,
-              height: 80,
-              borderRadius: 16,
-              background: "#f5880b",
-              color: "#11151b",
-              fontSize: 40,
+              width: 96,
+              height: 96,
+              borderRadius: 18,
+              background: "linear-gradient(180deg, #5b94f6 0%, #2f63e0 55%, #1a3fb0 100%)",
+              color: "#ffffff",
+              fontSize: 48,
               fontWeight: 800,
+              letterSpacing: -2,
             }}
           >
             RG

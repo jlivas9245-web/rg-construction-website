@@ -35,6 +35,22 @@ src/
 public/                # favicon + static assets
 ```
 
+## Branding / Logo
+
+The RG Construction logo is delivered as scalable vector art so it stays sharp
+at any size and adapts to light/dark themes:
+
+- **`src/components/Logo.tsx`** — the live navbar/footer logo (inline SVG, uses
+  the site's Oswald font and inverts for dark surfaces).
+- **`public/logo.svg`** — standalone full-lockup brand asset (for social,
+  email signatures, print).
+- **`public/favicon.svg`** — browser/tab icon.
+- **`src/app/opengraph-image.tsx`** — branded social share image.
+
+To use a raster version of the logo instead, drop your file in `public/`
+(e.g. `public/logo.png`) and swap the `<LogoMark />` usage in
+`src/components/Logo.tsx` for `<img src="/logo.png" />`.
+
 ## Customizing
 
 Most business details live in **`src/lib/site.ts`** — update the placeholder

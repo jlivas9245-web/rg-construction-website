@@ -53,7 +53,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
     name: site.legalName,
-    image: `${site.url}/og.png`,
+    image: `${site.url}/opengraph-image`,
     "@id": site.url,
     url: site.url,
     telephone: site.phoneDisplay,

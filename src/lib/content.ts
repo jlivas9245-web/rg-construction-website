@@ -117,7 +117,7 @@ export const residentialProjects: Project[] = [
     location: "Longview, TX",
     type: "residential",
     scope: "Custom cabinetry, quartz countertops, tile backsplash, new lighting",
-    gradient: ["#d96606", "#451603"],
+    gradient: ["#2451cf", "#122047"],
   },
   {
     title: "Spa Master Bathroom",
@@ -125,7 +125,7 @@ export const residentialProjects: Project[] = [
     location: "Tyler, TX",
     type: "residential",
     scope: "Walk-in tile shower, double vanity, heated floors",
-    gradient: ["#4e5b6c", "#11151b"],
+    gradient: ["#47536b", "#0c1019"],
   },
   {
     title: "Open-Concept Living Renovation",
@@ -133,7 +133,7 @@ export const residentialProjects: Project[] = [
     location: "Kilgore, TX",
     type: "residential",
     scope: "Wall removal, LVP flooring, finish carpentry, fresh paint",
-    gradient: ["#b44609", "#37404b"],
+    gradient: ["#1f41b0", "#2c3548"],
   },
   {
     title: "Hardwood Flooring Install",
@@ -141,7 +141,7 @@ export const residentialProjects: Project[] = [
     location: "Marshall, TX",
     type: "residential",
     scope: "1,800 sq ft engineered hardwood with custom transitions",
-    gradient: ["#92360e", "#1c222a"],
+    gradient: ["#1e3a8a", "#171d2b"],
   },
   {
     title: "Guest Bath Tile Feature",
@@ -149,7 +149,7 @@ export const residentialProjects: Project[] = [
     location: "Longview, TX",
     type: "residential",
     scope: "Floor-to-ceiling tile, niche shelving, frameless glass",
-    gradient: ["#637283", "#11151b"],
+    gradient: ["#5c6a86", "#0c1019"],
   },
   {
     title: "Home Office Addition",
@@ -157,7 +157,7 @@ export const residentialProjects: Project[] = [
     location: "Hallsville, TX",
     type: "residential",
     scope: "New framing, drywall, windows and built-in shelving",
-    gradient: ["#f5880b", "#782e0f"],
+    gradient: ["#3b6be3", "#1b336f"],
   },
 ];
 
@@ -168,7 +168,7 @@ export const commercialProjects: Project[] = [
     location: "Tyler, TX",
     type: "commercial",
     scope: "Full interior refresh, conference build-out, new flooring",
-    gradient: ["#404a58", "#11151b"],
+    gradient: ["#3a4458", "#0c1019"],
   },
   {
     title: "Boutique Retail Build-Out",
@@ -176,7 +176,7 @@ export const commercialProjects: Project[] = [
     location: "Longview, TX",
     type: "commercial",
     scope: "White-box to finished storefront, lighting, custom fixtures",
-    gradient: ["#d96606", "#1c222a"],
+    gradient: ["#2451cf", "#171d2b"],
   },
   {
     title: "Medical Suite Tenant Improvement",
@@ -184,7 +184,7 @@ export const commercialProjects: Project[] = [
     location: "Kilgore, TX",
     type: "commercial",
     scope: "Exam rooms, ADA upgrades, specialty plumbing",
-    gradient: ["#4e5b6c", "#11151b"],
+    gradient: ["#47536b", "#0c1019"],
   },
   {
     title: "Multi-Family Unit Turns",
@@ -192,7 +192,7 @@ export const commercialProjects: Project[] = [
     location: "Tyler, TX",
     type: "commercial",
     scope: "Recurring turns for 120-unit community, paint, flooring, repairs",
-    gradient: ["#b44609", "#37404b"],
+    gradient: ["#1f41b0", "#2c3548"],
   },
   {
     title: "Restaurant Build-Out",
@@ -200,7 +200,7 @@ export const commercialProjects: Project[] = [
     location: "Marshall, TX",
     type: "commercial",
     scope: "Kitchen infrastructure, dining finishes, code compliance",
-    gradient: ["#92360e", "#11151b"],
+    gradient: ["#1e3a8a", "#0c1019"],
   },
   {
     title: "Warehouse Office Conversion",
@@ -208,7 +208,7 @@ export const commercialProjects: Project[] = [
     location: "Longview, TX",
     type: "commercial",
     scope: "Mezzanine offices, framing, HVAC coordination, finishes",
-    gradient: ["#637283", "#11151b"],
+    gradient: ["#5c6a86", "#0c1019"],
   },
 ];
 

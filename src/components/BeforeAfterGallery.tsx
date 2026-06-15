@@ -12,20 +12,20 @@ const items: Item[] = [
   {
     title: "Dated Kitchen → Modern Showpiece",
     location: "Longview, TX",
-    before: ["#637283", "#37404b"],
-    after: ["#f5880b", "#782e0f"],
+    before: ["#5c6a86", "#2c3548"],
+    after: ["#3b6be3", "#1b336f"],
   },
   {
     title: "Worn Bathroom → Spa Retreat",
     location: "Tyler, TX",
-    before: ["#4e5b6c", "#1c222a"],
-    after: ["#d96606", "#451603"],
+    before: ["#47536b", "#171d2b"],
+    after: ["#2451cf", "#122047"],
   },
   {
     title: "Tired Living Room → Open Concept",
     location: "Kilgore, TX",
-    before: ["#82909f", "#404a58"],
-    after: ["#b44609", "#37404b"],
+    before: ["#7d8ba6", "#3a4458"],
+    after: ["#1f41b0", "#2c3548"],
   },
 ];
 
@@ -59,7 +59,7 @@ export function BeforeAfterGallery() {
                     label={`${item.title} after`}
                     className="aspect-[16/10] w-full"
                   />
-                  <span className="absolute left-4 top-4 rounded bg-brand-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-ink-950">
+                  <span className="absolute left-4 top-4 rounded bg-brand-600 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
                     After
                   </span>
                 </div>

@@ -20,7 +20,7 @@ export function Testimonials() {
               className="flex flex-col rounded-xl border border-white/10 bg-white/[0.04] p-6"
             >
               <Quote className="h-8 w-8 text-brand-400" />
-              <div className="mt-3 flex text-brand-400">
+              <div className="mt-3 flex text-accent-400">
                 {Array.from({ length: t.rating }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current" />
                 ))}

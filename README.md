@@ -37,19 +37,18 @@ public/                # favicon + static assets
 
 ## Branding / Logo
 
-The RG Construction logo is delivered as scalable vector art so it stays sharp
-at any size and adapts to light/dark themes:
+The official RG Construction logo art is used across the site:
 
-- **`src/components/Logo.tsx`** — the live navbar/footer logo (inline SVG, uses
-  the site's Oswald font and inverts for dark surfaces).
-- **`public/logo.svg`** — standalone full-lockup brand asset (for social,
-  email signatures, print).
-- **`public/favicon.svg`** — browser/tab icon.
+- **`public/logo.png`** — official logo (transparent background, trimmed).
+  Rendered in the navbar/footer via `src/components/Logo.tsx`, which shows it
+  full-color on light surfaces and as a clean white silhouette on dark
+  surfaces (dark mode + footer).
+- **`public/favicon.svg`** — browser/tab icon (blue RG mark).
 - **`src/app/opengraph-image.tsx`** — branded social share image.
 
-To use a raster version of the logo instead, drop your file in `public/`
-(e.g. `public/logo.png`) and swap the `<LogoMark />` usage in
-`src/components/Logo.tsx` for `<img src="/logo.png" />`.
+The site's color system complements the logo: a royal-blue **`brand`** palette
+(in `tailwind.config.ts`) with a warm gold **`accent`** reserved for star
+ratings. To restyle the whole site, edit those two scales in one place.
 
 ## Customizing
 

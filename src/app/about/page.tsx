@@ -73,13 +73,13 @@ export default function AboutPage() {
           </div>
           <div className="relative">
             <ProjectImage
-              gradient={["#d96606", "#11151b"]}
+              gradient={["#2451cf", "#0c1019"]}
               label="RG Construction team at work"
               className="aspect-[4/5] w-full rounded-xl"
             />
-            <div className="absolute -bottom-5 -left-5 hidden rounded-xl bg-brand-500 p-6 shadow-card sm:block">
-              <p className="font-display text-3xl font-bold text-ink-950">15+</p>
-              <p className="text-sm font-medium text-ink-900">Years serving East Texas</p>
+            <div className="absolute -bottom-5 -left-5 hidden rounded-xl bg-brand-600 p-6 shadow-card sm:block">
+              <p className="font-display text-3xl font-bold text-white">15+</p>
+              <p className="text-sm font-medium text-white/90">Years serving East Texas</p>
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default function AboutPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
               <div key={v.title} className="card p-6 text-center">
-                <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-brand-500 text-ink-950">
+                <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-brand-600 text-white">
                   <v.icon className="h-7 w-7" />
                 </span>
                 <h3 className="mt-4 font-display text-lg font-bold uppercase tracking-wide text-ink-900 dark:text-white">

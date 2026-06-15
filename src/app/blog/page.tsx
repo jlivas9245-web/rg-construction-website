@@ -14,9 +14,9 @@ export const metadata = buildMetadata({
 });
 
 const gradients: [string, string][] = [
-  ["#d96606", "#451603"],
-  ["#4e5b6c", "#11151b"],
-  ["#b44609", "#37404b"],
+  ["#2451cf", "#122047"],
+  ["#47536b", "#0c1019"],
+  ["#1f41b0", "#2c3548"],
 ];
 
 function formatDate(date: string) {

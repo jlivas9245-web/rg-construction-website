@@ -17,7 +17,7 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "linear-gradient(135deg, #11151b 0%, #37404b 100%)",
+          background: "linear-gradient(135deg, #0c1019 0%, #2c3548 100%)",
           color: "white",
           fontFamily: "sans-serif",
         }}
@@ -65,7 +65,7 @@ export default function OpenGraphImage() {
         >
           Quality Construction You Can Build On
         </div>
-        <div style={{ marginTop: 28, fontSize: 32, color: "#aeb7c2" }}>
+        <div style={{ marginTop: 28, fontSize: 32, color: "#aab6cc" }}>
           General Contractor · Longview · Tyler · Kilgore · Marshall
         </div>
       </div>

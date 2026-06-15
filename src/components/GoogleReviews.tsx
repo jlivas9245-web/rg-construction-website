@@ -18,7 +18,7 @@ export function GoogleReviews() {
             <p className="font-display text-4xl font-bold text-ink-900 dark:text-white">
               5.0
             </p>
-            <div className="mt-1 flex justify-center text-brand-500">
+            <div className="mt-1 flex justify-center text-accent-500">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="h-4 w-4 fill-current" />
               ))}
@@ -44,7 +44,7 @@ export function GoogleReviews() {
               key={review.name}
               className="card flex flex-col p-5"
             >
-              <div className="flex text-brand-500">
+              <div className="flex text-accent-500">
                 {Array.from({ length: review.rating }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current" />
                 ))}

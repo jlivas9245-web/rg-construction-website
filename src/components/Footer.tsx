@@ -15,7 +15,7 @@ export function Footer() {
             {site.tagline}. Licensed &amp; insured general contractor proudly
             serving East Texas.
           </p>
-          <div className="mt-4 flex items-center gap-1 text-brand-400">
+          <div className="mt-4 flex items-center gap-1 text-accent-400">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star key={i} className="h-4 w-4 fill-current" />
             ))}

@@ -20,7 +20,7 @@ export function PageHero({
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "linear-gradient(120deg, #11151b 0%, #1c222a 55%, #37404b 100%)",
+            "linear-gradient(120deg, #0c1019 0%, #171d2b 55%, #2c3548 100%)",
         }}
       />
       <div className="absolute inset-0 bg-hero-grid bg-[size:38px_38px] opacity-[0.12]" />

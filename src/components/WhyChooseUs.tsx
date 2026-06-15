@@ -54,7 +54,7 @@ export function WhyChooseUs() {
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason) => (
             <div key={reason.title} className="flex gap-4">
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-brand-500 text-ink-950">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-brand-600 text-white">
                 <reason.icon className="h-6 w-6" />
               </span>
               <div>

@@ -10,7 +10,7 @@ export function Hero() {
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "linear-gradient(135deg, #11151b 0%, #1c222a 45%, #37404b 100%)",
+            "linear-gradient(135deg, #0c1019 0%, #171d2b 45%, #2c3548 100%)",
         }}
       />
       <div className="absolute inset-0 bg-hero-grid bg-[size:40px_40px] opacity-[0.15]" />
@@ -49,7 +49,7 @@ export function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
             <div className="flex items-center gap-2">
-              <div className="flex text-brand-400">
+              <div className="flex text-accent-400">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current" />
                 ))}

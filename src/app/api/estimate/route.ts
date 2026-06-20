@@ -61,43 +61,116 @@ function row(label: string, value?: string) {
 }
 
 // ---- Customer auto-reply (confirmation) templates ----
+function customerSubject(isContact: boolean) {
+  return isContact
+    ? `${site.name} - Message Received`
+    : `${site.name} - Estimate Request Received`;
+}
+
 function customerHtml(name: string, isContact: boolean) {
-  const lead = isContact
-    ? "Thanks for reaching out to RG Construction. We've received your message"
-    : "Thanks for requesting a free estimate from RG Construction. We've received your request";
+  const headline = isContact ? "Message Received" : "Estimate Request Received";
+  const intro = isContact
+    ? "Thank you for contacting RG Construction. We've received your message and a member of our team will personally review it."
+    : "Thank you for requesting a free estimate from RG Construction. We've received your request and a member of our team will personally review the details of your project.";
+
   return `<!doctype html>
-  <html>
-    <body style="margin:0;background:#eef4ff;font-family:Arial,Helvetica,sans-serif">
-      <div style="max-width:600px;margin:0 auto;padding:24px">
-        <div style="background:linear-gradient(120deg,#1f41b0,#122047);border-radius:12px 12px 0 0;padding:28px">
-          <h1 style="margin:0;color:#ffffff;font-size:22px;letter-spacing:1px;text-transform:uppercase">Thank You, ${escapeHtml(name)}!</h1>
-        </div>
-        <div style="background:#ffffff;border:1px solid #e8ecf4;border-top:0;border-radius:0 0 12px 12px;padding:28px;color:#171d2b;font-size:15px;line-height:1.6">
-          <p style="margin:0 0 14px">${lead} and a member of our team will reach out shortly — usually within one business day.</p>
-          <p style="margin:0 0 14px">Need to talk sooner? Call or text us at
-            <a href="tel:${site.phoneHref}" style="color:#1f41b0;font-weight:600">${site.phoneDisplay}</a>.</p>
-          <p style="margin:0 0 20px">We appreciate the opportunity to earn your business.</p>
-          <p style="margin:0;color:#5c6a86;font-size:13px">— The ${site.name} Team<br>${site.serviceAreaLabel}</p>
-        </div>
-        <p style="text-align:center;color:#7d8ba6;font-size:11px;margin:16px 0 0">This is an automated confirmation. Please do not reply to this email.</p>
-      </div>
-    </body>
-  </html>`;
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="x-apple-disable-message-reformatting">
+<title>${headline}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#eef4ff;">
+  <!-- Preview text (hidden) -->
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">We received your request and will contact you within 24 hours.</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#eef4ff;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background-color:#ffffff;border:1px solid #e3e8f2;border-radius:14px;overflow:hidden;font-family:Arial,Helvetica,sans-serif;">
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#1f41b0;background-image:linear-gradient(120deg,#1f41b0,#122047);padding:28px 32px;">
+              <div style="color:#ffffff;font-size:24px;font-weight:bold;letter-spacing:3px;">RG CONSTRUCTION</div>
+              <div style="color:#bcd4ff;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:6px;">General Contractor &middot; East Texas</div>
+            </td>
+          </tr>
+          <!-- Body -->
+          <tr>
+            <td style="padding:32px;color:#171d2b;font-size:16px;line-height:1.6;">
+              <h1 style="margin:0 0 18px;font-size:22px;color:#122047;font-weight:bold;">${headline}</h1>
+              <p style="margin:0 0 16px;">Hi ${escapeHtml(name)},</p>
+              <p style="margin:0 0 20px;">${intro}</p>
+
+              <!-- 24-hour callout -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px;">
+                <tr>
+                  <td style="background-color:#eef4ff;border-left:4px solid #2451cf;border-radius:8px;padding:16px 20px;color:#1b336f;font-size:16px;font-weight:bold;">
+                    &#9200; We will contact you within 24 hours.
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:0 0 24px;">Need to reach us sooner? We're happy to talk through your project right away.</p>
+
+              <!-- Call button -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 28px;">
+                <tr>
+                  <td align="center" bgcolor="#2451cf" style="border-radius:8px;">
+                    <a href="tel:${site.phoneHref}" style="display:inline-block;padding:14px 32px;font-size:16px;font-weight:bold;color:#ffffff;text-decoration:none;border-radius:8px;">
+                      &#128222; Call ${site.phoneDisplay}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:0 0 4px;">We appreciate the opportunity to earn your business.</p>
+              <p style="margin:0;color:#5c6a86;font-size:14px;">&mdash; The ${site.name} Team</p>
+            </td>
+          </tr>
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#f4f6fb;border-top:1px solid #e3e8f2;padding:20px 32px;color:#7d8ba6;font-size:12px;line-height:1.5;">
+              <strong style="color:#5c6a86;">${site.legalName}</strong><br>
+              Serving ${site.serviceAreaLabel}<br>
+              <a href="tel:${site.phoneHref}" style="color:#2451cf;text-decoration:none;">${site.phoneDisplay}</a> &middot;
+              <a href="mailto:${site.email}" style="color:#2451cf;text-decoration:none;">${site.email}</a>
+              <div style="margin-top:12px;color:#aab6cc;">This is an automated confirmation — please do not reply to this message.</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
 }
 
 function customerText(name: string, isContact: boolean) {
-  const lead = isContact
-    ? "Thanks for reaching out to RG Construction. We've received your message"
-    : "Thanks for requesting a free estimate from RG Construction. We've received your request";
+  const headline = isContact ? "Message Received" : "Estimate Request Received";
+  const intro = isContact
+    ? "Thank you for contacting RG Construction. We've received your message and a member of our team will personally review it."
+    : "Thank you for requesting a free estimate from RG Construction. We've received your request and a member of our team will personally review the details of your project.";
   return [
-    `Thank you, ${name}!`,
+    `RG CONSTRUCTION — ${headline}`,
     "",
-    `${lead} and a member of our team will reach out shortly — usually within one business day.`,
+    `Hi ${name},`,
     "",
-    `Need to talk sooner? Call or text us at ${site.phoneDisplay}.`,
+    intro,
+    "",
+    ">> We will contact you within 24 hours. <<",
+    "",
+    `Need to reach us sooner? Call ${site.phoneDisplay}.`,
+    "",
+    "We appreciate the opportunity to earn your business.",
     "",
     `— The ${site.name} Team`,
-    site.serviceAreaLabel,
+    `${site.legalName}`,
+    `Serving ${site.serviceAreaLabel}`,
+    `${site.phoneDisplay} · ${site.email}`,
+    "",
+    "This is an automated confirmation — please do not reply to this message.",
   ].join("\n");
 }
 
@@ -212,7 +285,7 @@ export async function POST(request: Request) {
         from: FROM_EMAIL,
         to: [email],
         replyTo: TO_EMAIL,
-        subject: `We received your request — ${site.name}`,
+        subject: customerSubject(isContact),
         html: customerHtml(name, isContact),
         text: customerText(name, isContact),
       });

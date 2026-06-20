@@ -55,7 +55,7 @@ export default function ContactPage() {
             </h2>
             <p className="mt-3 text-ink-600 dark:text-ink-300">
               Whether you're planning a kitchen remodel, a commercial build-out
-              or ongoing property maintenance, our team is ready to help. Reach
+              or a full renovation, our team is ready to help. Reach
               out using any method below.
             </p>
 

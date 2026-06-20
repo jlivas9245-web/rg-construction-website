@@ -2,7 +2,6 @@ import { Bath, ChefHat, Hammer, Layers, PaintRoller, SquareStack } from "lucide-
 import { PageHero } from "@/components/PageHero";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { BeforeAfterGallery } from "@/components/BeforeAfterGallery";
-import { Financing } from "@/components/Financing";
 import { Testimonials } from "@/components/Testimonials";
 import { ContactCTA } from "@/components/ContactCTA";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -70,7 +69,6 @@ export default function ResidentialPage() {
         description="A look at residential remodels and builds completed across Longview, Tyler, Kilgore and Marshall."
       />
 
-      <Financing />
       <Testimonials />
       <ContactCTA />
     </>

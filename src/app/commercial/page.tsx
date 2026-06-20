@@ -1,7 +1,6 @@
 import { Building2, Briefcase, Store, Wrench, Layers, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { ProjectGallery } from "@/components/ProjectGallery";
-import { PropertyMaintenance } from "@/components/PropertyMaintenance";
 import { EmergencyRepair } from "@/components/EmergencyRepair";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ContactCTA } from "@/components/ContactCTA";
@@ -12,7 +11,7 @@ import { commercialProjects } from "@/lib/content";
 export const metadata = buildMetadata({
   title: "Commercial Contractor in East Texas | Build-Outs & TI",
   description:
-    "Commercial construction, tenant improvements, office & retail build-outs and multi-family property maintenance in Longview, Tyler & East Texas. RG Construction delivers on time and on budget.",
+    "Commercial construction, tenant improvements, office & retail build-outs and ground-up commercial projects in Longview, Tyler & East Texas. RG Construction delivers on time and on budget.",
   path: "/commercial",
   keywords: ["Tenant Improvements East Texas", "Commercial Build-Out Longview", "Office Renovation Tyler TX"],
 });
@@ -21,9 +20,9 @@ const specialties = [
   { icon: Layers, title: "Tenant Improvements", text: "Fast, code-compliant TI work that gets commercial spaces lease-ready." },
   { icon: Briefcase, title: "Office Renovations", text: "Modern, functional workspaces — from refreshes to full reconfigurations." },
   { icon: Store, title: "Retail Build-Outs", text: "White-box to grand opening, coordinated with your brand and timeline." },
-  { icon: Wrench, title: "Apartment Maintenance", text: "Reliable unit turns and repairs that keep your communities leasing." },
-  { icon: Users, title: "Property Management Services", text: "A dependable contracting partner for your entire property portfolio." },
-  { icon: Building2, title: "Multi-Family Projects", text: "Renovations and improvements scaled for multi-family properties." },
+  { icon: Wrench, title: "Restaurant Build-Outs", text: "Kitchen infrastructure and dining finishes built to code and on time." },
+  { icon: Building2, title: "Commercial Construction", text: "Ground-up builds and structural projects managed end to end." },
+  { icon: Users, title: "Multi-Family Renovations", text: "Interior and exterior renovations scaled for multi-family properties." },
 ];
 
 export default function CommercialPage() {
@@ -32,7 +31,7 @@ export default function CommercialPage() {
       <PageHero
         eyebrow="Commercial"
         title="Commercial Construction & Build-Outs in East Texas"
-        description="Tenant improvements, office and retail build-outs, and multi-family maintenance for businesses, landlords and property managers across the region."
+        description="Tenant improvements, office and retail build-outs, and ground-up commercial construction for businesses, landlords and property owners across the region."
         crumbs={[{ label: "Commercial" }]}
       />
 
@@ -40,7 +39,7 @@ export default function CommercialPage() {
         <div className="container-px">
           <SectionHeading
             eyebrow="Commercial Services"
-            title="Solutions for Businesses & Property Managers"
+            title="Solutions for Businesses & Property Owners"
             description="We understand the stakes of commercial work — downtime costs money. We deliver quality on a schedule you can plan around."
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -83,10 +82,9 @@ export default function CommercialPage() {
         projects={commercialProjects}
         eyebrow="Commercial Portfolio"
         title="Recent Commercial Projects"
-        description="Build-outs, renovations and maintenance delivered for East Texas businesses and property owners."
+        description="Build-outs, renovations and construction delivered for East Texas businesses and property owners."
       />
 
-      <PropertyMaintenance />
       <EmergencyRepair />
       <GoogleReviews />
       <ContactCTA />

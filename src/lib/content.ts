@@ -17,10 +17,10 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Daniel Reyes",
-    role: "Property Manager",
+    role: "Business Owner",
     location: "Tyler, TX",
     quote:
-      "We manage several apartment communities and RG is our go-to for turns and maintenance. They are responsive, fairly priced, and the quality keeps our units leasing fast.",
+      "RG renovated our office suite from top to bottom. They were responsive, fairly priced, and the quality of the finished space exceeded what we expected.",
     rating: 5,
   },
   {
@@ -87,11 +87,6 @@ export const faqs: Faq[] = [
     question: "How long will my project take?",
     answer:
       "Timelines depend on scope. A bathroom remodel may take a couple of weeks, while a commercial build-out or new construction project runs longer. After our initial assessment we provide a detailed schedule with key milestones.",
-  },
-  {
-    question: "Do you offer property maintenance contracts?",
-    answer:
-      "Yes. We offer ongoing maintenance and unit-turn services for apartment complexes, rental portfolios and commercial properties. Reach out to discuss a recurring service agreement tailored to your properties.",
   },
   {
     question: "How do change orders and pricing work?",
@@ -187,11 +182,11 @@ export const commercialProjects: Project[] = [
     gradient: ["#47536b", "#0c1019"],
   },
   {
-    title: "Multi-Family Unit Turns",
-    category: "Apartment Maintenance",
+    title: "Multi-Family Renovation",
+    category: "Multi-Family",
     location: "Tyler, TX",
     type: "commercial",
-    scope: "Recurring turns for 120-unit community, paint, flooring, repairs",
+    scope: "Interior renovations across a 24-unit apartment community",
     gradient: ["#1f41b0", "#2c3548"],
   },
   {
@@ -242,6 +237,6 @@ export const googleReviews: Review[] = [
     name: "Chris D.",
     rating: 5,
     date: "2 months ago",
-    text: "Reliable crew for our rental property maintenance. They handle everything so we don't have to.",
+    text: "Hired RG for a retail build-out and they nailed the timeline. Professional crew from start to finish.",
   },
 ];

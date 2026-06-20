@@ -12,7 +12,7 @@ export function ServicesOverview({ limit }: { limit?: number }) {
         <SectionHeading
           eyebrow="What We Do"
           title="Full-Service General Contracting"
-          description="A single, trusted team for residential and commercial construction, remodeling and maintenance across East Texas."
+          description="A single, trusted team for residential and commercial construction, remodeling and renovations across East Texas."
         />
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

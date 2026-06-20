@@ -17,9 +17,6 @@ import {
   BadgeCheck,
   MapPin,
   UserCheck,
-  CalendarClock,
-  Gauge,
-  Percent,
   type LucideIcon,
 } from "lucide-react";
 
@@ -33,7 +30,7 @@ export const site = {
   legalName: "RG Construction LLC",
   tagline: "Building East Texas, One Project at a Time",
   description:
-    "RG Construction is a licensed and insured general contractor serving Longview, Tyler, Kilgore, Marshall and surrounding East Texas communities with residential and commercial construction, remodeling and property maintenance.",
+    "RG Construction is a licensed and insured general contractor serving Longview, Tyler, Kilgore, Marshall and surrounding East Texas communities with residential and commercial construction, remodeling and renovations.",
   // Update this to your production domain before deploying.
   url: "https://www.rgconstructiontx.com",
   phoneDisplay: "903-917-4229",
@@ -208,15 +205,6 @@ export const services: Service[] = [
     category: "residential",
   },
   {
-    slug: "property-maintenance",
-    title: "Property Maintenance",
-    short: "Reliable upkeep for property managers.",
-    description:
-      "Ongoing maintenance and turn services for apartment complexes, rentals and commercial properties.",
-    icon: Wrench,
-    category: "commercial",
-  },
-  {
     slug: "commercial-build-outs",
     title: "Commercial Build-Outs",
     short: "Retail, office & restaurant build-outs.",
@@ -249,30 +237,6 @@ export const trustBadges: TrustBadge[] = [
   { title: "Workmanship Warranty", detail: "We stand behind every project", icon: BadgeCheck },
   { title: "Locally Owned", detail: "Your East Texas neighbors", icon: MapPin },
   { title: "Background-Checked Crews", detail: "Trusted, professional teams", icon: UserCheck },
-];
-
-export type FinancingOption = {
-  title: string;
-  detail: string;
-  icon: LucideIcon;
-};
-
-export const financingOptions: FinancingOption[] = [
-  {
-    title: "Flexible Monthly Plans",
-    detail: "Spread the cost of your project over affordable monthly payments that fit your budget.",
-    icon: CalendarClock,
-  },
-  {
-    title: "Fast Pre-Approval",
-    detail: "Quick, easy application with financing decisions often available the same day.",
-    icon: Gauge,
-  },
-  {
-    title: "Competitive Rates",
-    detail: "Partnered lending options with rates and terms designed for home improvement projects.",
-    icon: Percent,
-  },
 ];
 
 export type EmergencyService = {

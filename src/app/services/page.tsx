@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { ServicesOverview } from "@/components/ServicesOverview";
-import { Financing } from "@/components/Financing";
 import { EmergencyRepair } from "@/components/EmergencyRepair";
 import { ContactCTA } from "@/components/ContactCTA";
 import { FAQ } from "@/components/FAQ";
@@ -29,7 +28,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Our Services"
         title="Full-Service General Contracting in East Texas"
-        description="One trusted contractor for residential and commercial construction, remodeling, finishes and property maintenance — from small repairs to ground-up builds."
+        description="One trusted contractor for residential and commercial construction, remodeling and finishes — from small repairs to ground-up builds."
         crumbs={[{ label: "Services" }]}
       />
 
@@ -100,14 +99,14 @@ export default function ServicesPage() {
           </div>
           <div className="card p-8">
             <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-ink-900 dark:text-white">
-              For Businesses & Property Managers
+              For Businesses & Commercial Clients
             </h3>
             <p className="mt-3 text-ink-600 dark:text-ink-300">
-              Build-outs, tenant improvements and maintenance that keep your
+              Build-outs, tenant improvements and renovations that keep your
               properties productive and profitable.
             </p>
             <ul className="mt-5 space-y-2.5">
-              {["Tenant improvements & build-outs", "Office & retail renovations", "Apartment & multi-family maintenance", "Property management support"].map((item) => (
+              {["Tenant improvements & build-outs", "Office & retail renovations", "Ground-up commercial construction", "Multi-family renovations"].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-ink-700 dark:text-ink-200">
                   <CheckCircle2 className="h-4 w-4 text-brand-500" />
                   {item}
@@ -121,7 +120,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <Financing />
       <EmergencyRepair />
       <FAQ />
       <ContactCTA />

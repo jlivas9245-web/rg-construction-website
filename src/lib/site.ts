@@ -26,7 +26,7 @@ export const site = {
   description:
     "RG Construction is a licensed and insured general contractor serving Longview, Tyler, Kilgore, Marshall and surrounding East Texas communities with residential and commercial construction, remodeling and property maintenance.",
   // Update this to your production domain before deploying.
-  url: "https://www.rgconstruction-tx.com",
+  url: "https://www.rgconstructiontx.com",
   phoneDisplay: "903-917-4229",
   phoneHref: "+19039174229",
   email: "rgconstructionserv@gmail.com",

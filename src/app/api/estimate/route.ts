@@ -7,10 +7,26 @@ export const runtime = "nodejs";
 
 // Where estimate / contact requests are delivered. Override with env if needed.
 const TO_EMAIL = process.env.ESTIMATE_TO_EMAIL || "rgconstructionserv@gmail.com";
-// Must be an address on a domain you've verified in Resend. For quick testing
-// Resend allows "onboarding@resend.dev".
+// Sender address. Defaults to the verified rgconstructiontx.com domain so mail
+// is DKIM/SPF-signed for best deliverability. Override with RESEND_FROM_EMAIL.
 const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL || "RG Construction <onboarding@resend.dev>";
+  process.env.RESEND_FROM_EMAIL ||
+  "RG Construction <estimates@rgconstructiontx.com>";
+
+/**
+ * Health check — GET /api/estimate
+ * Reports whether the email system is configured, WITHOUT exposing the secret
+ * key. Safe to hit on the live site to confirm setup.
+ */
+export async function GET() {
+  const hasKey = Boolean(process.env.RESEND_API_KEY);
+  return NextResponse.json({
+    configured: hasKey,
+    status: hasKey ? "ready" : "missing RESEND_API_KEY",
+    to: TO_EMAIL,
+    from: FROM_EMAIL,
+  });
+}
 
 type LeadPayload = {
   name?: string;

@@ -72,7 +72,7 @@ honeypot field blocks basic spam bots.
 1. Create a free account at [resend.com](https://resend.com).
 2. **Verify a sending domain** at https://resend.com/domains (add the DNS
    records Resend gives you). This lets you send from an address like
-   `estimates@yourdomain.com`. *(For a quick test you can skip this and send
+   `estimates@rgconstructiontx.com`. *(For a quick test you can skip this and send
    from `onboarding@resend.dev`.)*
 3. Create an API key at https://resend.com/api-keys.
 4. Set these environment variables (locally in `.env.local`, and in your
@@ -81,7 +81,7 @@ honeypot field blocks basic spam bots.
    ```bash
    RESEND_API_KEY=re_your_key_here
    ESTIMATE_TO_EMAIL=rgconstructionserv@gmail.com
-   RESEND_FROM_EMAIL=RG Construction <estimates@yourdomain.com>
+   RESEND_FROM_EMAIL=RG Construction <estimates@rgconstructiontx.com>
    ```
 
    `ESTIMATE_TO_EMAIL` defaults to `rgconstructionserv@gmail.com` if unset.

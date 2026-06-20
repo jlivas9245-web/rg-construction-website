@@ -5,7 +5,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StickyCallButton } from "@/components/StickyCallButton";
-import { site } from "@/lib/site";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { site, serviceAreas } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -49,23 +50,56 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // LocalBusiness / Google Business Profile structured data.
   const orgSchema = {
     "@context": "https://schema.org",
-    "@type": "GeneralContractor",
+    "@type": ["GeneralContractor", "HomeAndConstructionBusiness", "LocalBusiness"],
     name: site.legalName,
+    alternateName: site.name,
     image: `${site.url}/opengraph-image`,
-    "@id": site.url,
+    logo: `${site.url}/logo.png`,
+    "@id": `${site.url}/#organization`,
     url: site.url,
     telephone: site.phoneDisplay,
     email: site.email,
+    foundingDate: site.foundingYear,
     address: {
       "@type": "PostalAddress",
       addressLocality: site.address.city,
       addressRegion: site.address.state,
       addressCountry: "US",
     },
-    areaServed: ["Longview TX", "Tyler TX", "Kilgore TX", "Marshall TX", "East Texas"],
-    priceRange: "$$",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: site.geo.lat,
+      longitude: site.geo.lng,
+    },
+    areaServed: serviceAreas.map((area) => ({
+      "@type": "City",
+      name: `${area}, TX`,
+    })),
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "07:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "08:00",
+        closes: "14:00",
+      },
+    ],
+    sameAs: [site.social.facebook, site.social.instagram, site.social.google],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: site.rating.value,
+      reviewCount: site.rating.count,
+      bestRating: "5",
+    },
+    priceRange: site.priceRange,
     description: site.description,
   };
 
@@ -78,10 +112,12 @@ export default function RootLayout({
         />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Header />
-          <main className="flex-1">{children}</main>
+          {/* Bottom padding on mobile keeps content clear of the sticky call bar. */}
+          <main className="flex-1 pb-20 md:pb-0">{children}</main>
           <Footer />
           <StickyCallButton />
         </ThemeProvider>
+        <GoogleAnalytics />
       </body>
     </html>
   );

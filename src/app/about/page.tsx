@@ -1,6 +1,7 @@
 import { CheckCircle2, Compass, Heart, ShieldCheck, Target } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
+import { TrustBadges } from "@/components/TrustBadges";
 import { Testimonials } from "@/components/Testimonials";
 import { ServiceAreaMap } from "@/components/ServiceAreaMap";
 import { ContactCTA } from "@/components/ContactCTA";
@@ -110,6 +111,7 @@ export default function AboutPage() {
       </section>
 
       <WhyChooseUs />
+      <TrustBadges />
       <Testimonials />
       <ServiceAreaMap />
       <ContactCTA />

@@ -26,14 +26,18 @@ export function Footer() {
           <div className="mt-5 flex gap-3">
             <a
               href={site.social.facebook}
-              aria-label="Facebook"
+              aria-label="RG Construction on Facebook"
+              target="_blank"
+              rel="noopener noreferrer"
               className="grid h-9 w-9 place-items-center rounded-md border border-ink-700 transition hover:border-brand-400 hover:text-brand-400"
             >
               <Facebook className="h-4 w-4" />
             </a>
             <a
               href={site.social.instagram}
-              aria-label="Instagram"
+              aria-label="RG Construction on Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
               className="grid h-9 w-9 place-items-center rounded-md border border-ink-700 transition hover:border-brand-400 hover:text-brand-400"
             >
               <Instagram className="h-4 w-4" />

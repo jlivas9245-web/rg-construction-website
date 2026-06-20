@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight, Phone } from "lucide-react";
+import { site } from "@/lib/site";
 
 type Crumb = { label: string; href?: string };
 
@@ -8,11 +9,13 @@ export function PageHero({
   title,
   description,
   crumbs = [],
+  cta = true,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   crumbs?: Crumb[];
+  cta?: boolean;
 }) {
   return (
     <section className="relative overflow-hidden bg-ink-950 text-white">
@@ -57,6 +60,19 @@ export function PageHero({
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-200">
             {description}
           </p>
+        )}
+
+        {cta && (
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link href="/contact" className="btn-primary">
+              Request a Free Estimate
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a href={`tel:${site.phoneHref}`} className="btn-ghost-light">
+              <Phone className="h-4 w-4" />
+              {site.phoneDisplay}
+            </a>
+          </div>
         )}
       </div>
     </section>

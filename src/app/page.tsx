@@ -1,8 +1,12 @@
 import { Hero } from "@/components/Hero";
 import { LicensedInsured } from "@/components/LicensedInsured";
+import { TrustBadges } from "@/components/TrustBadges";
 import { ServicesOverview } from "@/components/ServicesOverview";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { ProjectGallery } from "@/components/ProjectGallery";
+import { EmergencyRepair } from "@/components/EmergencyRepair";
+import { PropertyMaintenance } from "@/components/PropertyMaintenance";
+import { Financing } from "@/components/Financing";
 import { Testimonials } from "@/components/Testimonials";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ServiceAreaMap } from "@/components/ServiceAreaMap";
@@ -29,6 +33,7 @@ export default function HomePage() {
       <Hero />
       <LicensedInsured />
       <ServicesOverview limit={6} />
+      <TrustBadges />
       <WhyChooseUs />
       <ProjectGallery
         projects={featured}
@@ -37,6 +42,9 @@ export default function HomePage() {
         description="A selection of recent residential and commercial projects completed across East Texas."
         cta={{ href: "/residential", label: "Explore Our Projects" }}
       />
+      <Financing />
+      <PropertyMaintenance />
+      <EmergencyRepair />
       <Testimonials />
       <GoogleReviews />
       <ServiceAreaMap />

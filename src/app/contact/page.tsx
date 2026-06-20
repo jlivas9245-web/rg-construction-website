@@ -43,6 +43,7 @@ export default function ContactPage() {
         title="Request Your Free Estimate"
         description="Tell us about your project and we'll get back to you quickly with next steps. No obligation, no pressure."
         crumbs={[{ label: "Contact" }]}
+        cta={false}
       />
 
       <section className="py-20">

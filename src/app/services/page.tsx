@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { ServicesOverview } from "@/components/ServicesOverview";
+import { Financing } from "@/components/Financing";
+import { EmergencyRepair } from "@/components/EmergencyRepair";
 import { ContactCTA } from "@/components/ContactCTA";
 import { FAQ } from "@/components/FAQ";
 import { buildMetadata } from "@/lib/seo";
@@ -119,6 +121,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <Financing />
+      <EmergencyRepair />
       <FAQ />
       <ContactCTA />
     </>

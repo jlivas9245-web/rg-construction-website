@@ -11,6 +11,15 @@ import {
   SquareStack,
   Home,
   Store,
+  ShieldCheck,
+  Award,
+  FileCheck2,
+  BadgeCheck,
+  MapPin,
+  UserCheck,
+  CalendarClock,
+  Gauge,
+  Percent,
   type LucideIcon,
 } from "lucide-react";
 
@@ -53,6 +62,11 @@ export const site = {
     { label: "Repeat & Referral Clients", value: "92%" },
     { label: "Licensed & Insured", value: "100%" },
   ],
+  foundingYear: "2009",
+  priceRange: "$$",
+  // Approx. coordinates for Longview, TX (used in LocalBusiness schema).
+  geo: { lat: 32.5007, lng: -94.7405 },
+  rating: { value: "5.0", count: "100" },
 } as const;
 
 export const serviceAreas = [
@@ -220,4 +234,54 @@ export const navLinks = [
   { label: "Commercial", href: "/commercial" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+];
+
+export type TrustBadge = {
+  title: string;
+  detail: string;
+  icon: LucideIcon;
+};
+
+export const trustBadges: TrustBadge[] = [
+  { title: "Licensed & Insured", detail: "General liability + workers' comp", icon: ShieldCheck },
+  { title: "15+ Years Experience", detail: "Serving East Texas since 2009", icon: Award },
+  { title: "Free Written Estimates", detail: "No-obligation, itemized bids", icon: FileCheck2 },
+  { title: "Workmanship Warranty", detail: "We stand behind every project", icon: BadgeCheck },
+  { title: "Locally Owned", detail: "Your East Texas neighbors", icon: MapPin },
+  { title: "Background-Checked Crews", detail: "Trusted, professional teams", icon: UserCheck },
+];
+
+export type FinancingOption = {
+  title: string;
+  detail: string;
+  icon: LucideIcon;
+};
+
+export const financingOptions: FinancingOption[] = [
+  {
+    title: "Flexible Monthly Plans",
+    detail: "Spread the cost of your project over affordable monthly payments that fit your budget.",
+    icon: CalendarClock,
+  },
+  {
+    title: "Fast Pre-Approval",
+    detail: "Quick, easy application with financing decisions often available the same day.",
+    icon: Gauge,
+  },
+  {
+    title: "Competitive Rates",
+    detail: "Partnered lending options with rates and terms designed for home improvement projects.",
+    icon: Percent,
+  },
+];
+
+export type EmergencyService = {
+  title: string;
+  detail: string;
+};
+
+export const emergencyServices: EmergencyService[] = [
+  { title: "Storm & Water Damage", detail: "Rapid response for leaks, flooding and storm-damaged structures." },
+  { title: "Emergency Board-Up & Repairs", detail: "Secure and stabilize your property fast to prevent further loss." },
+  { title: "Urgent Tenant Repairs", detail: "Same-day repairs that keep your rentals safe and occupied." },
 ];

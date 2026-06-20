@@ -60,6 +60,47 @@ function row(label: string, value?: string) {
   </tr>`;
 }
 
+// ---- Customer auto-reply (confirmation) templates ----
+function customerHtml(name: string, isContact: boolean) {
+  const lead = isContact
+    ? "Thanks for reaching out to RG Construction. We've received your message"
+    : "Thanks for requesting a free estimate from RG Construction. We've received your request";
+  return `<!doctype html>
+  <html>
+    <body style="margin:0;background:#eef4ff;font-family:Arial,Helvetica,sans-serif">
+      <div style="max-width:600px;margin:0 auto;padding:24px">
+        <div style="background:linear-gradient(120deg,#1f41b0,#122047);border-radius:12px 12px 0 0;padding:28px">
+          <h1 style="margin:0;color:#ffffff;font-size:22px;letter-spacing:1px;text-transform:uppercase">Thank You, ${escapeHtml(name)}!</h1>
+        </div>
+        <div style="background:#ffffff;border:1px solid #e8ecf4;border-top:0;border-radius:0 0 12px 12px;padding:28px;color:#171d2b;font-size:15px;line-height:1.6">
+          <p style="margin:0 0 14px">${lead} and a member of our team will reach out shortly — usually within one business day.</p>
+          <p style="margin:0 0 14px">Need to talk sooner? Call or text us at
+            <a href="tel:${site.phoneHref}" style="color:#1f41b0;font-weight:600">${site.phoneDisplay}</a>.</p>
+          <p style="margin:0 0 20px">We appreciate the opportunity to earn your business.</p>
+          <p style="margin:0;color:#5c6a86;font-size:13px">— The ${site.name} Team<br>${site.serviceAreaLabel}</p>
+        </div>
+        <p style="text-align:center;color:#7d8ba6;font-size:11px;margin:16px 0 0">This is an automated confirmation. Please do not reply to this email.</p>
+      </div>
+    </body>
+  </html>`;
+}
+
+function customerText(name: string, isContact: boolean) {
+  const lead = isContact
+    ? "Thanks for reaching out to RG Construction. We've received your message"
+    : "Thanks for requesting a free estimate from RG Construction. We've received your request";
+  return [
+    `Thank you, ${name}!`,
+    "",
+    `${lead} and a member of our team will reach out shortly — usually within one business day.`,
+    "",
+    `Need to talk sooner? Call or text us at ${site.phoneDisplay}.`,
+    "",
+    `— The ${site.name} Team`,
+    site.serviceAreaLabel,
+  ].join("\n");
+}
+
 export async function POST(request: Request) {
   let data: LeadPayload;
   try {
@@ -162,6 +203,21 @@ export async function POST(request: Request) {
         { error: "Could not send your request. Please call us instead." },
         { status: 502 },
       );
+    }
+
+    // Auto-reply confirmation to the customer. Non-fatal: if it fails we still
+    // report success because the lead reached the business inbox.
+    try {
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: [email],
+        replyTo: TO_EMAIL,
+        subject: `We received your request — ${site.name}`,
+        html: customerHtml(name, isContact),
+        text: customerText(name, isContact),
+      });
+    } catch (replyErr) {
+      console.error("Auto-reply failed (lead still delivered):", replyErr);
     }
 
     return NextResponse.json({ ok: true });

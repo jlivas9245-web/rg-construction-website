@@ -1,6 +1,8 @@
 import { Building2, Briefcase, Store, Wrench, Layers, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { ProjectGallery } from "@/components/ProjectGallery";
+import { PropertyMaintenance } from "@/components/PropertyMaintenance";
+import { EmergencyRepair } from "@/components/EmergencyRepair";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ContactCTA } from "@/components/ContactCTA";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -84,6 +86,8 @@ export default function CommercialPage() {
         description="Build-outs, renovations and maintenance delivered for East Texas businesses and property owners."
       />
 
+      <PropertyMaintenance />
+      <EmergencyRepair />
       <GoogleReviews />
       <ContactCTA />
     </>
